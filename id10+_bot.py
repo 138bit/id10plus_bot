@@ -5,6 +5,8 @@ from ..bot_control import Move
 import math
 import heapq
 
+DEBUG = False
+
 class mesh_gen:
 
     def __init__(self, grid, N: int, radius: float, default: int, weight: int = 1) -> None:
@@ -273,7 +275,7 @@ class id10plus_bot:
 
         # move = Move.STAY
 
-        if game_info.current_round == game_info.number_of_rounds:
+        if game_info.current_round == game_info.number_of_rounds and DEBUG:
             print(mg)
             # print(mm)
             print(enemies)
@@ -284,5 +286,5 @@ class id10plus_bot:
                     print(s.format((y * l) + x), end=' ')
                 print("\n")
 
-        print(move, p, e, self.position, grid.shape[0], game_info.grid_size)
+        # print(move, p, e, self.position, grid.shape[0], game_info.grid_size)
         return move
